@@ -6,8 +6,9 @@ This is a WIP
 
 ```
 Express
-Mongoose,
-Mocha,
+Mongoose
+Mocha
+Chai
 Typescript
 ```
 

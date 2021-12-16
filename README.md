@@ -16,6 +16,7 @@ Typescript
 ```
 Clone the repository
 Create a .env file and populate the enviroment variables
+install nodemon and typescript
 ```
 
 ## Run

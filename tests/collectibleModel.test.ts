@@ -6,11 +6,11 @@ import Collectible from '../src/models/Collectible/types';
 
 dotenv.config();
 
-describe('Mongo', async function () {
+describe('Mongo', function () {
 	var doc: null | Collectible;
 
-	before(async () => {
-		await connect();
+	before(() => {
+		connect();
 
 		doc = new CollectibleModel({
 			name: 'Deadpool',

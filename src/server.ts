@@ -11,6 +11,4 @@ app.listen(process.env.EXPRESS_PORT || 3000, () => {
 	);
 });
 
-(async () => {
-	await connect();
-})();
+connect();

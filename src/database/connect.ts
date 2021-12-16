@@ -1,9 +1,9 @@
 import Mongoose from 'mongoose';
 
-export default async function connect(): Promise<void> {
+export default function connect(): void {
 	console.log('\x1b[36m', `[MongoDB] Attempt to connect to cluster...`);
 
-	await Mongoose.connect(process.env.MONGODB_URI as string)
+	Mongoose.connect(process.env.MONGODB_URI as string)
 		.then(() =>
 			console.log('\x1b[36m', `[MongoDB] Successfully connected to cluster.`)
 		)

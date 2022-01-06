@@ -1,6 +1,6 @@
 import express, { Express } from 'express';
 import cors from 'cors';
-import v1Router from '../../routes/v1';
+import Routes from '../../routes/v1';
 
 class AppController {
 	public express: Express;
@@ -10,10 +10,12 @@ class AppController {
 		this.middlewares();
 	}
 
-	middlewares() {
+	middlewares(): void {
 		this.express.use(express.json());
+		this.express.use(express.urlencoded({ extended: true }));
 		this.express.use(cors());
-		this.express.use('/api/v1', v1Router);
+		this.express.use('/images', express.static('./storage'));
+		this.express.use('/api/v1', new Routes().router);
 	}
 }
 

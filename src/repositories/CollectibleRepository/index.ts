@@ -1,8 +1,8 @@
 import CollectibleModel from '../../models/Collectible';
-import Collectible from '../../models/Collectible/types';
+import CollectibleDoc from '../../models/Collectible/types';
 
 export default class CollectibleRepository {
-	static async getById(id: string): Promise<Collectible | null> {
+	static async getById(id: string): Promise<CollectibleDoc | null> {
 		return await CollectibleModel.findById(id);
 	}
 }

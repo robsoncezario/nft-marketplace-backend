@@ -1,29 +1,29 @@
 import { Schema } from 'mongoose';
-import Collectible from './types';
+import CollectibleDoc from './types';
 
-const collectibleSchema = new Schema<Collectible>(
+const collectibleSchema: Schema<CollectibleDoc> = new Schema<CollectibleDoc>(
 	{
 		name: {
 			type: String,
 			required: true,
+			index: true,
 		},
 
 		description: {
 			type: String,
 			required: true,
+			index: true,
 		},
 
-		url: {
+		image: {
 			type: String,
 			required: true,
-			get: (url: string) => {
-				return process.env.STATICS_FOLDER_PATH + '/' + url;
-			},
+			unique: true,
 		},
 
-		price: {
-			type: Number,
-			required: true,
+		creator: {
+			type: Schema.Types.ObjectId,
+			ref: 'User',
 		},
 	},
 	{
@@ -40,5 +40,9 @@ const collectibleSchema = new Schema<Collectible>(
 
 collectibleSchema.set('toObject', { getters: true });
 collectibleSchema.set('toJSON', { getters: true });
+
+collectibleSchema.virtual('imageURL').get(function (this: CollectibleDoc) {
+	return process.env.STATICS_FOLDER_PATH + '/' + this.image;
+});
 
 export default collectibleSchema;

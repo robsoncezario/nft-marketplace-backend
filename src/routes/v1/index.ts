@@ -1,8 +1,17 @@
 import express, { Router } from 'express';
-import collectibleRoutes from './Collectible/index';
+import CollectibleRouter from './Collectible/index';
+import AuthRouter from './Auth/index';
 
-const v1Router: Router = express.Router();
+export default class Routes {
+	public router: Router;
 
-v1Router.use('/collectible', collectibleRoutes);
+	constructor() {
+		this.router = Router();
+		this.routes();
+	}
 
-export default v1Router;
+	public routes(): void {
+		this.router.use('/auth', new AuthRouter().router);
+		this.router.use('/collectibles', new CollectibleRouter().router);
+	}
+}

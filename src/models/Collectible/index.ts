@@ -1,7 +1,11 @@
-import { model } from 'mongoose';
-import collectibleSchema from './schema';
-import Collectible from './types';
+import { model, Model } from 'mongoose';
 
-const CollectibleModel = model<Collectible>('Collectible', collectibleSchema);
+import collectibleSchema from './schema';
+import CollectibleDoc from './types';
+
+const CollectibleModel: Model<CollectibleDoc> = model<CollectibleDoc>(
+	'Collectible',
+	collectibleSchema
+);
 
 export default CollectibleModel;

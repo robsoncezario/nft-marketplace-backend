@@ -3,6 +3,7 @@ import joi from 'joi';
 
 import CollectibleController from '../../../controllers/CollectibleController';
 import upload from '../../../controllers/MulterController';
+import validateAddress from '../../../middlewares/address/validateAddress';
 
 import validateQueryMiddleware from '../../../middlewares/joi/validateQuery';
 
@@ -29,6 +30,7 @@ export default class CollectibleRouter {
 		this.router.get('/:id', CollectibleController.findById);
 		this.router.post(
 			'/upload',
+			validateAddress(),
 			upload.single('image'),
 			CollectibleController.upload
 		);

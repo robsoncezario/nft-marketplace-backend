@@ -2,9 +2,11 @@ import { Request, Response } from 'express';
 import { Document } from 'mongoose';
 
 import CollectibleDoc from '../../models/Collectible/types';
+import UserDoc from '../../models/User/types';
 import CollectibleRepository from '../../repositories/CollectibleRepository';
 import CollectibleService from '../../services/CollectibleService';
 import { CollectibleFindyAllResponse } from '../../services/CollectibleService/types';
+import UserService from '../../services/UserService';
 
 import { CollectibleFindyByIdRequest, CollectibleInput } from './types';
 
@@ -47,10 +49,23 @@ export default class CollectibleController {
 		try {
 			if (req.file) {
 				const { name, description } = req.body as unknown as CollectibleInput;
-				const collectible: Document<CollectibleDoc> =
-					await CollectibleService.create(req.file.filename, name, description);
+				const user: UserDoc | null = await UserService.findByAddress(
+					req.walletAddress as string
+				);
 
-				res.status(200).json({ collectible: collectible });
+				if (user) {
+					const collectible: Document<CollectibleDoc> =
+						await CollectibleService.create(
+							req.file.filename,
+							name,
+							description,
+							user
+						);
+
+					res.status(200).json({ collectible: collectible });
+				} else {
+					res.status(403).send('Unauthorized');
+				}
 			}
 		} catch {
 			res.status(409).json({ error: '' });

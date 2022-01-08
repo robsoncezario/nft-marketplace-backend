@@ -25,6 +25,11 @@ const collectibleSchema: Schema<CollectibleDoc> = new Schema<CollectibleDoc>(
 			type: Schema.Types.ObjectId,
 			ref: 'User',
 		},
+
+		tokenId: {
+			type: Number,
+			required: false,
+		},
 	},
 	{
 		timestamps: true,

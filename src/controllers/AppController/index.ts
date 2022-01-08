@@ -1,13 +1,16 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 import Routes from '../../routes/v1';
+import Web3Root from '../../web3';
 
 class AppController {
 	public express: Express;
+	public ethereum: Web3Root;
 
 	constructor() {
 		this.express = express();
 		this.middlewares();
+		this.ethereum = new Web3Root();
 	}
 
 	middlewares(): void {

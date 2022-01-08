@@ -7,6 +7,8 @@ This is a WIP
 ```
 Express
 Mongoose
+Ethers
+Multer
 Mocha
 Chai
 Typescript

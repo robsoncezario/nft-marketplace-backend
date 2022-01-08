@@ -1,6 +1,6 @@
-import CollectibleDoc from '../../models/Collectible/types';
+import CollectibleDoc from "../../models/Collectible/types";
 
 export interface CollectibleFindyAllResponse {
-	items: CollectibleDoc[];
-	count: number;
+  items: CollectibleDoc[];
+  count: number;
 }

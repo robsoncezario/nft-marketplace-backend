@@ -1,12 +1,12 @@
-import { Document } from 'mongoose';
+import { Document } from "mongoose";
 
-import CollectibleDoc from '../Collectible/types';
-import UserDoc from '../User/types';
+import CollectibleDoc from "../Collectible/types";
+import UserDoc from "../User/types";
 
 export default interface RatingDoc extends Document {
-	id: string;
-	user: UserDoc;
-	collectible: CollectibleDoc;
-	createdAt: Date;
-	updatedAt: Date;
+  id: string;
+  user: UserDoc;
+  collectible: CollectibleDoc;
+  createdAt: Date;
+  updatedAt: Date;
 }

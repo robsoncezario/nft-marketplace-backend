@@ -1,17 +1,17 @@
-import { Router } from 'express';
+import { Router } from "express";
 
-import AuthController from '../../../controllers/AuthController';
-import validateAddress from '../../../middlewares/address/validateAddress';
+import AuthController from "../../../controllers/AuthController";
+import validateAddress from "../../../middlewares/address/validateAddress";
 
 export default class AuthRouter {
-	public router: Router;
+  public router: Router;
 
-	constructor() {
-		this.router = Router();
-		this.routes();
-	}
+  constructor() {
+    this.router = Router();
+    this.routes();
+  }
 
-	public routes(): void {
-		this.router.get('/nonce', validateAddress(), AuthController.generateNonce);
-	}
+  public routes(): void {
+    this.router.get("/nonce", validateAddress(), AuthController.generateNonce);
+  }
 }

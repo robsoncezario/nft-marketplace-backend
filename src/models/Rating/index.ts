@@ -1,8 +1,8 @@
-import { model, Model } from 'mongoose';
+import { model, Model } from "mongoose";
 
-import ratingSchema from './schema';
-import RatingDoc from './types';
+import ratingSchema from "./schema";
+import RatingDoc from "./types";
 
-const RatingModel: Model<RatingDoc> = model<RatingDoc>('Rating', ratingSchema);
+const RatingModel: Model<RatingDoc> = model<RatingDoc>("Rating", ratingSchema);
 
 export default RatingModel;

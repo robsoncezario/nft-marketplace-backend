@@ -1,8 +1,8 @@
 export interface CollectibleFindyByIdRequest {
-	id: string;
+  id: string;
 }
 
 export interface CollectibleInput {
-	name: string;
-	description: string;
+  name: string;
+  description: string;
 }

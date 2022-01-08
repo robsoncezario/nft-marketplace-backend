@@ -7,6 +7,8 @@ This is a WIP
 ```
 Express
 Mongoose
+Ethers
+Multer
 Mocha
 Chai
 Typescript
@@ -32,5 +34,9 @@ npm run dev
 ```
 EXPRESS_PORT
 STATICS_FOLDER_PATH
+ETHEREUM_SIGN_MESSAGE
 MONGODB_URI
+RPC_URL_GANACHE
+NFT_CONTRACT_ADDRESS
+MARKETPLACE_CONTRACT_ADDRESS
 ```
